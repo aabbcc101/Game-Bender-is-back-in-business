@@ -13,21 +13,21 @@ class Guns():
         
         self.rect =self.gun1_Right.get_rect()
 
-    def draw(self,x,y, direction, fire):
+    def draw(self,new_rect, direction, fire):
         if direction == 'right' and fire == False:
-            self.rect.x = x + 20
-            self.rect.y = y + 55
-            self.screen.blit(self.gun1_Right, self.rect)
+            new_rect.x += 20
+            new_rect.y += 55
+            self.screen.blit(self.gun1_Right, new_rect)
         elif direction == 'left' and fire == False:
-            self.rect.x = x - 20
-            self.rect.y = y + 55    
-            self.screen.blit(self.gun1_Left, self.rect)
+            new_rect.x -= 20
+            new_rect.y += 55    
+            self.screen.blit(self.gun1_Left, new_rect)
         elif direction == 'right' and fire == True:
-            self.rect.x = x + 20
-            self.rect.y = y + 55
-            self.screen.blit(self.gun1R_fire, self.rect)
+            new_rect.x += 20
+            new_rect.y += 55
+            self.screen.blit(self.gun1R_fire, new_rect)
         elif direction == 'left' and fire == True:
-            self.rect.x = x - 20
-            self.rect.y = y + 55    
-            self.screen.blit(self.gun1L_fire, self.rect)
+            new_rect.x -= 20
+            new_rect.y += 55    
+            self.screen.blit(self.gun1L_fire, new_rect)
             

@@ -61,22 +61,19 @@ class Bullet(Sprite):
         self.real_x = self.rect.x
         self.real_y = self.rect.y
         
-        print(f'GGGGame.bender.real_x = {game.bender.real_x} game.bender.real_y = {game.bender.real_y} ')
-        print(f'FIRST self.real_x = {self.real_x} self.rect.x = {self.rect.x} ')
+        #print(f'GGGGame.bender.real_x = {game.bender.real_x} game.bender.real_y = {game.bender.real_y} ')
+        #print(f'FIRST self.real_x = {self.real_x} self.rect.x = {self.rect.x} ')
 
         
     def need_to_delete(self):
                 
         if  (math.sqrt((self.x_on_a_map - self.start_x)**2 + (self.y_on_a_map -self.start_y)**2) >= self.long_of_fire):
-            print(f' long = {math.sqrt((- self.start_x + self.x_on_a_map)**2 + (- self.start_y + self.y_on_a_map)**2)}')
+            #print(f' long = {math.sqrt((- self.start_x + self.x_on_a_map)**2 + (- self.start_y + self.y_on_a_map)**2)}')
             return True
         else:
             return False
 
     def update(self):
-        ##self.real_x = self.rect.x
-        #self.real_y = self.rect.y
-        #print(f' self.rect.x = {self.real_x} self.rect.y = {self.real_y}')
         self.x_on_a_map += (BULLET_SPEED + 2) * self.mouse_cos
         self.real_x += (BULLET_SPEED + 2) * self.mouse_cos
         self.y_on_a_map += (BULLET_SPEED + 2) * self.mouse_sin    
@@ -88,7 +85,7 @@ class Bullet(Sprite):
           
         
         
-    def draw_bullet(self):
-        pygame.draw.rect(self.screen, self.color, self.rect)
+    def draw_bullet(self, new_rect):
+        pygame.draw.rect(self.screen, self.color, new_rect)
         
     

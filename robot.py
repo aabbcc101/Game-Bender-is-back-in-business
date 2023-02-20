@@ -21,9 +21,10 @@ class Robot():
         self.jump_act = False
         self.jump_up = False
         self.height_jump = 20 # 5 * 20 = 100 pixel
-        self.speed = 5
+        self.speed = 10
         self.size_of_jump = 10
         self.shot_f = False
+        self.celling = False
         
         self.live = True
         
@@ -46,6 +47,8 @@ class Robot():
                 self.step_direction = 'left'
             elif self.step_direction =='left':
                 self.step_direction = 'right'
+
+        
                 
             
     def jump(self):
@@ -56,24 +59,24 @@ class Robot():
             
         
         
-    def blitme(self):
+    def blitme(self, new_rect):
         if self.shot_f == True and self.direction == 'right':
-            self.screen.blit(self.imageRightF, self.rect)
+            self.screen.blit(self.imageRightF, new_rect)
         elif self.shot_f == True and self.direction == 'left':
-            self.screen.blit(self.imageLeftF, self.rect)
+            self.screen.blit(self.imageLeftF, new_rect)
         if self.shot_f == False:
             if self.direction == 'right':
                 if self.step_direction == 'left':
-                    self.screen.blit(self.imageRight2, self.rect)
+                    self.screen.blit(self.imageRight2, new_rect)
                     #self.step_direction = 'right'
                 elif self.step_direction == 'right':
-                    self.screen.blit(self.imageRight1, self.rect)
+                    self.screen.blit(self.imageRight1, new_rect)
                     #self.step_direction = 'left'
             elif self.direction == 'left':
                 if self.step_direction == 'left':
-                    self.screen.blit(self.imageLeft2, self.rect)
+                    self.screen.blit(self.imageLeft2, new_rect)
                 elif self.step_direction == 'right':
-                    self.screen.blit(self.imageLeft1, self.rect)
+                    self.screen.blit(self.imageLeft1, new_rect)
                    
         #if self.live == False:
             #self.screen.blit(self.imageExplode, self.rect)
