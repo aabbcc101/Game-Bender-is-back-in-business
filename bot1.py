@@ -35,15 +35,15 @@ class Bot1(Sprite):
         elif self.direction =='left':
             self.direction = 'right'
         
-    def blitme(self):
+    def blitme(self, new_rect):
         
-        self.rect.x = self.real_x
-        self.rect.y = self.real_y
+        #self.rect.x = self.real_x
+        #self.rect.y = self.real_y
         if self.direction == 'right':
             #if self.step_direction == 'left':
-            self.screen.blit(self.imageRight, self.rect)
+            self.screen.blit(self.imageRight, new_rect)
                     #elif self.direction == 'left':
         elif self.direction == 'left':
-            self.screen.blit(self.imageLeft, self.rect)
+            self.screen.blit(self.imageLeft, new_rect)
             #elif self.step_direction == 'right':
                 #self.screen.blit(self.imageLeft1, self.rect)
